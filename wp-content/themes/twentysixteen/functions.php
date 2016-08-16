@@ -419,3 +419,48 @@ function twentysixteen_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
+
+
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  register_post_type( 'shop',
+    array(
+      'labels' => array(
+        'name' => __( 'Shop' ),
+        'singular_name' => __( 'Shop Item' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'taxonomies' => array('shopcat'),
+    )
+  );
+}
+
+function add_custom_taxonomies() {
+  register_taxonomy('shopcat', 'shop', array(
+    'hierarchical' => true,
+    'labels' => array(
+      'name' => _x( 'Shop Categories', 'taxonomy general name' ),
+      'singular_name' => _x( 'Shop Category', 'taxonomy singular name' ),
+      'search_items' =>  __( 'Search Shop Category' ),
+      'all_items' => __( 'All Shop Category' ),
+      'parent_item' => __( 'Parent Shop Category' ),
+      'parent_item_colon' => __( 'Parent Shop Category:' ),
+      'edit_item' => __( 'Edit Shop Category' ),
+      'update_item' => __( 'Update Shop Category' ),
+      'add_new_item' => __( 'Add New Shop Category' ),
+      'new_item_name' => __( 'New Shop Category Name' ),
+      'menu_name' => __( 'Shop Categories' ),
+    ),
+    // Control the slugs used for this taxonomy
+    'rewrite' => array(
+      'slug' => 'shopcategories',
+      'with_front' => true,
+      'hierarchical' => true
+    ),
+  ));
+}
+add_action( 'init', 'add_custom_taxonomies', 0 );
+
+
+?>

@@ -6,7 +6,7 @@ Template Name: Shop
 <?php get_header(); ?>
 
 		<div class="shop-body">
-			<?php if( have_rows('repeater_field_name') ): ?>
+			<?php if( have_rows('product') ): ?>
 
 		<ul class="theproducts">
 

@@ -8,7 +8,7 @@ Template Name: Shop
 		<div class="shop-body">
 			<?php if( have_rows('product') ): ?>
 
-		<ul>
+		<ul class="theproducts">
 
 		<?php while( have_rows('product') ): the_row();
 
@@ -19,7 +19,7 @@ Template Name: Shop
 
 			?>
 
-			<li>
+			<li class="product">
 
 					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
 			    <?php echo $name; ?>

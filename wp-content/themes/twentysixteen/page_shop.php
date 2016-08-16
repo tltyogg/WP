@@ -16,16 +16,19 @@ Template Name: Shop
 			$image = get_sub_field('image');
 			$name = get_sub_field('name');
 			$price = get_sub_field('price');
+			$link = get_sub_field('link');
 
 			?>
 
-			<li class="product">
+			<li class="product"><a href="<?php echo $link; ?>" />
 
 					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-			    <?php echo $name; ?>
-					<?php echo $price; ?>
+			    <div class="footer">
+						<div class="top"><?php echo $name; ?></div>
+						<div class="bottom"><?php echo $price; ?></div>
+					</div>
 
-
+				</a>
 			</li>
 
 		<?php endwhile; ?>

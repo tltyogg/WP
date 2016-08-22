@@ -463,4 +463,9 @@ function add_custom_taxonomies() {
 add_action( 'init', 'add_custom_taxonomies', 0 );
 
 
+register_nav_menus( array(
+	'shop_categories' => 'Shop Categories Menu',
+) );
+
+
 ?>

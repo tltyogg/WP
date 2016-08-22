@@ -8,7 +8,7 @@ Template Name: Shop
 	<div id="full-wrapper" class="shoppage">
         <div style="clear: both;"></div>
 
-		<div id="shop-linkbar"><?php wp_nav_menu( array('theme_location' =>   'secondary' ) ); ?></div>
+		<div id="shop-linkbar"><?php wp_nav_menu( array('theme_location' =>   'shop_categories' ) ); ?></div>
 
 		<div class="shop-body">
 			<?php
@@ -17,12 +17,12 @@ Template Name: Shop
 			$wp_query = new WP_Query( $query ); if ( $wp_query->have_posts() ) : ?>
 				<ul class="theproducts">
 				<?php
+				while ($wp_query->have_posts()) : $wp_query->the_post();
 				$image = get_field('image');
 				$name = get_field('name');
 				$price = get_field('price');
 				$link = get_field('link');
-				 while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-
+				 ?>
 
 					<li class="product"><a href="<?php echo $link; ?>" />
 
@@ -36,7 +36,7 @@ Template Name: Shop
 					</li>
 				<?php endwhile; ?>
 			</ul>
-
+</div>
 			<div class="navigation">
 				<div class="load-more">
 					<div class="left"><?php previous_posts_link('Go Back') ?></div>

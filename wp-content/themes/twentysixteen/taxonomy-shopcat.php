@@ -38,7 +38,7 @@
 					<div class="left"><?php previous_posts_link('Go Back') ?></div>
 					<div class="right"><?php next_posts_link('Keep Browsing') ?></div>
 				</div>
-				<div class="type"><?php echo $term->name; ?> / </div><?php wp_pagenavi(); ?>
+			
 			</div>
 			<?php endif; ?>
 		</div>

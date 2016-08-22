@@ -440,8 +440,8 @@ function add_custom_taxonomies() {
   register_taxonomy('shopcat', 'shop', array(
     'hierarchical' => true,
     'labels' => array(
-      'name' => _x( 'Shop Categories', 'taxonomy general name' ),
-      'singular_name' => _x( 'Shop Category', 'taxonomy singular name' ),
+      'name' => _x( 'Shop Categories', 'shopcategories' ),
+      'singular_name' => _x( 'Shop Category', 'shopcategory' ),
       'search_items' =>  __( 'Search Shop Category' ),
       'all_items' => __( 'All Shop Category' ),
       'parent_item' => __( 'Parent Shop Category' ),
@@ -457,6 +457,7 @@ function add_custom_taxonomies() {
       'slug' => 'shopcategories',
       'with_front' => true,
       'hierarchical' => true
+
     ),
   ));
 }
@@ -466,6 +467,7 @@ add_action( 'init', 'add_custom_taxonomies', 0 );
 register_nav_menus( array(
 	'shop_categories' => 'Shop Categories Menu',
 ) );
+
 
 
 ?>
